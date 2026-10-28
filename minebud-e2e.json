@@ -1,0 +1,7 @@
+{
+  "name": "Warps demo",
+  "server": { "type": "endstone", "speed": "standard", "maxTicks": 2400, "scriptProfiler": true },
+  "packs": ["packs/BP"],
+  "timeoutMs": 120000,
+  "tests": ["e2e/*.e2e.mjs"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "minebud-warps-demo",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@minebud/e2e": "https://minebud.dev/e2e/minebud-e2e-0.9.0.tgz"
+  }
+}

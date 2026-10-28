@@ -1,0 +1,15 @@
+# .github/workflows/minebud-pr.yml: PR check
+on: pull_request
+permissions: {contents: read}
+concurrency: {group: minebud-e2e-${{ github.ref }}, cancel-in-progress: true}
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: minebud/e2e-action@v1
+        with:
+          api-key: ${{ secrets.MINEBUD_API_KEY }}
+          baseline: default-branch
+          max-regression-pct: 20
+          fail-on-insight-severity: high
