@@ -30,3 +30,11 @@ system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
 world.afterEvents.playerSpawn.subscribe(({ player, initialSpawn }) => {
     if (initialSpawn) player.sendMessage("Welcome! Type /demo:warps to travel.");
 });
+
+// Show each player how many mobs are nearby.
+system.runInterval(() => {
+    for (const player of world.getAllPlayers()) {
+        const nearby = player.dimension.getEntities({ location: player.location, maxDistance: 32 });
+        player.onScreenDisplay.setActionBar(`Nearby: ${nearby.length}`);
+    }
+}, 1);
